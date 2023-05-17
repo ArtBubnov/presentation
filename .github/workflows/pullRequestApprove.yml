@@ -26,7 +26,7 @@ jobs:
           echo "Pull request target branch is:"
           echo ${{ github.event.pull_request.base.ref }}
           echo "TEST"
-          echo ${{ github.ref.name }}
+          echo $GITHUB_REF_NAME
 
       - uses: actions/checkout@v3
 
