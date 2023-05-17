@@ -1,4 +1,3 @@
-#Installs the sfdx cli
 echo -e "--- SFDX CLI installation script executions start ---\n\n\n"
 
 
