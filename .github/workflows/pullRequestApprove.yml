@@ -23,5 +23,6 @@ jobs:
 
       - name: run bash script
         run: |
+          chmod +x ./build/test.sh
           ./build/test.sh
 
