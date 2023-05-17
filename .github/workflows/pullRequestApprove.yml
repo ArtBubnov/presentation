@@ -1,0 +1,27 @@
+#this scenario will be executed if a Pull Request has been approved
+name: pull request approved logic
+
+#depends on the target branch one of the following scenarios will be executed:
+on:
+  #pull_request:
+  push:
+    #target branch is: 
+    branches:
+      - 'dev**'
+      - 'qa**'
+      - 'staging**'
+      - 'uat**'
+      - 'prod**'
+    #types: [submitted]
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: run bash script
+        run: |
+          ./build/test.sh
+
