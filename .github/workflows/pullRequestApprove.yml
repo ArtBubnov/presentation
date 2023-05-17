@@ -19,6 +19,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Logger
+        run: |
+          echo "Pull request source branch is:"
+          echo ${{ github.event.pull_request.head.ref }}
+          echo "Pull request target branch is:"
+          echo ${{ github.event.pull_request.base.ref }}
+          echo "TEST"
+          echo ${{ github.ref.name }}
+
       - uses: actions/checkout@v3
 
       - name: SFDX CLI installation
@@ -26,3 +35,7 @@ jobs:
           chmod +x ./build/install_dependencies.sh
           ./build/install_dependencies.sh
 
+      #- name: Salesforce org login
+      #  run: |
+      #    chmod +x ./build/login_to_SF_org.sh
+      #    ./build/login_to_SF_org.sh
