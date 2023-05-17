@@ -23,6 +23,6 @@ jobs:
 
       - name: SFDX CLI installation
         run: |
-          chmod +x ./build/test.sh
-          ./build/test.sh
+          chmod +x ./build/install_dependencies.sh
+          ./build/install_dependencies.sh
 
