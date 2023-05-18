@@ -144,8 +144,8 @@ echo -e "\n--- Step 3 execution is finished ---"
 
 
 
-
-echo -e "\n\n\nStep 4. Logic execution to define the list of apex tests to be executed during deployment to the Salesforce org"
+pwd
+echo -e "\n\n\n--- Step 4. Logic execution to define the list of apex tests to be executed during deployment to the Salesforce org ---"
 #get to classes directory to define the list of tests to be executed
 cd force-app/main/default/classes/tests
 
@@ -182,8 +182,8 @@ NUMBER_OF_SYMBOLS_TO_TRUNCATE=$( expr $LEN_OF_LIST_OF_FILES_TO_TEST - 1 )
 LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER_OF_SYMBOLS_TO_TRUNCATE )
 
 
-echo "Step 4 execution is finished"
-echo "Step 4 execution result:"
+echo -e "\nStep 4 execution result:"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
-
+echo -e "\n--- Step 4 execution is finished ---"
 cd /home/runner/work/presentation/presentation
+pwd
