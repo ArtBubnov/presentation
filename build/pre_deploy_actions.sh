@@ -70,7 +70,7 @@ echo $(git config pull.rebase false)
 echo $(git config advice.detachedHead false)
 
 #git checkout "origin/"$SOURCE_BRANCH_NAME
-git checkout $SOURCE_BRANCH_NAME
+#git checkout $SOURCE_BRANCH_NAME
 git pull origin $TARGET_BRANCH_NAME --no-commit && git commit -m "Merge" || true
 
 echo -e "\n--- Step 2.1 execution is finished ---"
