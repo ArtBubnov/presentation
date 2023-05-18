@@ -17,3 +17,57 @@ echo -e "\nTarget branch name is:"
 echo $TARGET_BRANCH_NAME
 
 echo -e "\n--- Step 1 execution is finished ---"
+
+
+
+
+echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---"
+echo "Depends on the result of case definition the following will be determined:"
+echo "A - Target Salesforce org for metadata"
+echo "B - Salesforce org alias"
+case $TARGET_BRANCH_NAME in
+    "dev")
+        CASE_LOG="dev"
+        SALESFORCE_TARGET_ORG_ALIAS="salesforce_dev_sandbox.org"
+        ;;
+    "qa")
+        CASE_LOG="qa"
+        SALESFORCE_TARGET_ORG_ALIAS="salesforce_qa_sandbox.org"
+        ;;
+    "staging")
+        CASE_LOG="staging"
+        SALESFORCE_TARGET_ORG_ALIAS="salesforce_staging.org"
+        ;;
+    "uat")
+        CASE_LOG="uat"
+        SALESFORCE_TARGET_ORG_ALIAS_UAT="salesforce_uat.org"
+        ;;
+    "prod")
+        CASE_LOG="prod"
+        SALESFORCE_TARGET_ORG_ALIAS="salesforce_prod.org"
+        ;;
+    *)
+        echo "Not valid"
+        ;;
+esac
+
+echo "Step 2 execution result:"
+echo "Target Salesforce org for metadata is:"
+echo $CASE_LOG
+echo "Salesforce org alias is:"
+echo $SALESFORCE_TARGET_ORG_ALIAS
+echo "--- Step 2 execution is finished ---"
+
+
+
+echo -e "\n\n\n--- Step 2.1. Get correct git data ---"
+echo $(git config --global user.email $GIT_CONFIG_USER_EMAIL)
+echo $(git config --global user.name $GIT_CONFIG_USER_NAME)
+echo $(git config --global user.password $GIT_CONFIG_USER_PASSWORD)
+echo $(git config pull.rebase false)
+echo $(git config advice.detachedHead false)
+
+git checkout "origin/"$SOURCE_BRANCH_NAME
+git pull origin $TARGET_BRANCH_NAME --no-commit && git commit -m "Merge" || true
+
+echo "--- Step 2.1 execution is finished ---"
