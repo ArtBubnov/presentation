@@ -144,7 +144,7 @@ echo -e "\n--- Step 3 execution is finished ---"
 
 
 
-pwd
+
 echo -e "\n\n\n--- Step 4. Logic execution to define the list of apex tests to be executed during deployment to the Salesforce org ---"
 #get to classes directory to define the list of tests to be executed
 cd force-app/main/default/classes/tests
@@ -186,4 +186,42 @@ echo -e "\nStep 4 execution result:"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
 echo -e "\n--- Step 4 execution is finished ---"
 cd /home/runner/work/presentation/presentation
-pwd
+
+
+
+
+echo -e "\n\n\n--- Step 5. Test deploy to the Salesforce org ---\n"
+echo "Depends on the target branch a spesific SFDX command should be picked"
+
+
+case $TARGET_BRANCH_NAME in
+    "dev")
+        echo "--- PLACEHOLDER ---.Deployment to DEV SF ENV has started"
+        #TBD SHOULD BE UNCOMMENTED
+        #sfdx force:source:deploy -p "$FILES_TO_DEPLOY" -c -l RunSpecifiedTests -r "$LIST_OF_FILES_TO_TEST_TRUNC" -u ${SALESFORCE_TARGET_ORG_ALIAS} --loglevel WARN
+        ;;
+    "qa")
+        echo "--- PLACEHOLDER ---.Deployment to QA SF ENV has started"
+        #TBD SHOULD BE UNCOMMENTED
+        #sfdx force:source:deploy -p "$FILES_TO_DEPLOY" -c -l RunSpecifiedTests -r "$LIST_OF_FILES_TO_TEST_TRUNC" -u ${SALESFORCE_TARGET_ORG_ALIAS} --loglevel WARN
+        ;;
+    "staging")
+        echo "--- PLACEHOLDER ---.Deployment to STAGING SF ENV has started"
+        #TBD SHOULD BE UNCOMMENTED
+        #sfdx force:source:deploy -p "$FILES_TO_DEPLOY" -c -l RunSpecifiedTests -r "$LIST_OF_FILES_TO_TEST_TRUNC" -u ${SALESFORCE_TARGET_ORG_ALIAS} --loglevel WARN
+        ;;
+    "uat")
+        echo "--- PLACEHOLDER ---.Deployment to UAT SF ENV has started"
+        #TBD SHOULD BE UNCOMMENTED
+        #sfdx force:source:deploy -p "$FILES_TO_DEPLOY" -c -l RunSpecifiedTests -r "$LIST_OF_FILES_TO_TEST_TRUNC" -u ${SALESFORCE_TARGET_ORG_ALIAS} --loglevel WARN
+        ;;
+    "prod")
+        echo "--- PLACEHOLDER ---.Deployment to PROD SF ENV has started"
+        #TBD SHOULD BE UNCOMMENTED
+        #sfdx force:source:deploy -p "$FILES_TO_DEPLOY" -c -l RunSpecifiedTests -r "$LIST_OF_FILES_TO_TEST_TRUNC" -u ${SALESFORCE_TARGET_ORG_ALIAS} --loglevel WARN
+        ;;
+    *)
+        echo "Not valid"
+        ;;
+esac
+echo -e "\n--- Step 5 execution is finished ---"
