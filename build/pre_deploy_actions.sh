@@ -138,7 +138,7 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo "Step 3 execution is finished"
+echo -e "\nStep 3 execution is finished"
 echo "Step 3 execution result:"
 echo "Files to deploy"
 echo $FILES_TO_DEPLOY
