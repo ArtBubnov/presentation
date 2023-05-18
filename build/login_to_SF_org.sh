@@ -55,12 +55,15 @@ echo $SALESFORCE_ORG_ALIAS
 
 echo -e "\n\n\nStep 3. Login to the target Salesforce org"
 echo "Creating .key file"
+echo "--- PLACEHOLDER ---. .key file has been created"
 #touch access_pass.key
 
 echo -e "\nAdding access data to .key file"
+echo "--- PLACEHOLDER ---. access data added to .key file"
 #echo $ACCESS_KEY_SF > access_pass.key
 
 echo -e "\nTry SF login"
+echo "--- PLACEHOLDER ---. SF login successful"
 #sfdx force:auth:sfdxurl:store -f "access_pass.key" -a ${SALESFORCE_ORG_ALIAS} -d
 #rm access_pass.key
 echo "Step 3 execution is finished"
