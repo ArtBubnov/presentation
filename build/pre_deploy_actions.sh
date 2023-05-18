@@ -1,6 +1,8 @@
 
 echo -e "--- Predeploy actions script executions start ---\n\n\n"
-echo $(git branch)
+TEST=$(git branch)
+echo "test"
+echo $TEST
 
 
 
