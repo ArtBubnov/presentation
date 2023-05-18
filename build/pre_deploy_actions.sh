@@ -143,5 +143,5 @@ echo $FILES_TO_DEPLOY
 echo -e "\n--- Step 3 execution is finished ---"
 
 pwd
-
+ls -a
 
