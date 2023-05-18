@@ -1,16 +1,15 @@
 echo -e "--- Salesforce org login script executions start ---\n\n\n"
 
-echo -e "\nStep 1. Define global variables for the current pipeline"
+echo -e "\n--- Step 1. Define global variables for the current pipeline ---"
 TARGET_BRANCH_NAME=$GITHUB_REF_NAME
-echo "Step 1 execution is finished"
 echo "Step 1 execution result:"
 echo "Target branch is:"
 echo $TARGET_BRANCH_NAME
+echo "--- Step 1 execution is finished ---"
 
 
 
-
-echo -e "\n\n\nStep 2. Define case for the current pipeline"
+echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---"
 echo "Depends on the result of case definition the following will be determined:"
 echo "A - Salesforce access key"
 echo "B - Salesforce org alias"
@@ -41,7 +40,6 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo "Step 2 execution is finished"
 echo "Step 2 execution result:"
 echo "Case result:"
 echo $CASE_LOG
@@ -49,12 +47,12 @@ echo "Salesforce org to be used:"
 echo $CASE_LOG
 echo "Salesforce alias to be used: "
 echo $SALESFORCE_ORG_ALIAS
+echo "--- Step 2 execution is finished ----"
 
 
 
-
-echo -e "\n\n\nStep 3. Login to the target Salesforce org"
-echo "Creating .key file"
+echo -e "\n\n\n--- Step 3. Login to the target Salesforce org ---"
+echo -e "\nCreating .key file"
 echo "--- PLACEHOLDER ---. .key file has been created"
 #touch access_pass.key
 
@@ -66,7 +64,7 @@ echo -e "\nTry SF login"
 echo "--- PLACEHOLDER ---. SF login successful"
 #sfdx force:auth:sfdxurl:store -f "access_pass.key" -a ${SALESFORCE_ORG_ALIAS} -d
 #rm access_pass.key
-echo "Step 3 execution is finished"
+echo "--- Step 3 execution is finished ---"
 
 
 
