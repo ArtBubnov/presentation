@@ -142,6 +142,48 @@ echo "Files to deploy"
 echo $FILES_TO_DEPLOY
 echo -e "\n--- Step 3 execution is finished ---"
 
-pwd
-ls -a
 
+
+
+echo -e "\n\n\nStep 4. Logic execution to define the list of apex tests to be executed during deployment to the Salesforce org"
+#get to classes directory to define the list of tests to be executed
+cd force-app/main/default/classes/tests
+
+#add all the files in the folder into array
+mapfile -t classes_files_array < <( ls )
+
+#define which of the files are tests
+COUNT=0
+ARRAY_LEN=${#classes_files_array[@]}
+LIST_OF_FILES_TO_TEST=""
+LOOP_LEN=$( expr $ARRAY_LEN - 1)
+
+while [ $COUNT -le $LOOP_LEN ]
+do
+    if [[ ${classes_files_array[$COUNT]} == *"Test.cls"* ]];
+    then
+
+        if [[ ${classes_files_array[$COUNT]} == *"cls-meta.xml"* ]];
+        then
+            LIST_OF_XML_FILES=$LIST_OF_XML_FILES{classes_files_array[$COUNT]}","
+        else
+            LEN_OF_FILE_NAME=${#classes_files_array[$COUNT]}
+            NUMBER_OF_SYMBOLS_TO_TRUNCATE=$( expr $LEN_OF_FILE_NAME - 4 )
+            FILE_NAME_TRUNC=$((echo ${classes_files_array[$COUNT]}) | cut -c 1-$NUMBER_OF_SYMBOLS_TO_TRUNCATE )
+            LIST_OF_FILES_TO_TEST=$LIST_OF_FILES_TO_TEST$FILE_NAME_TRUNC","
+        fi
+
+    fi 
+    COUNT=$(( $COUNT +1))
+done
+
+LEN_OF_LIST_OF_FILES_TO_TEST=${#LIST_OF_FILES_TO_TEST}
+NUMBER_OF_SYMBOLS_TO_TRUNCATE=$( expr $LEN_OF_LIST_OF_FILES_TO_TEST - 1 )
+LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER_OF_SYMBOLS_TO_TRUNCATE )
+
+
+echo "Step 4 execution is finished"
+echo "Step 4 execution result:"
+echo $LIST_OF_FILES_TO_TEST_TRUNC
+
+cd /home/runner/work/presentation/presentation
