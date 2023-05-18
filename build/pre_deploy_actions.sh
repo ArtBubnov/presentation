@@ -21,10 +21,10 @@ echo -e "\n--- Step 1 execution is finished ---"
 
 
 
-echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---"
+echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---\n"
 echo "Depends on the result of case definition the following will be determined:"
 echo "A - Target Salesforce org for metadata"
-echo "B - Salesforce org alias"
+echo -e "B - Salesforce org alias\n"
 case $TARGET_BRANCH_NAME in
     "dev")
         CASE_LOG="dev"
@@ -54,9 +54,9 @@ esac
 echo "Step 2 execution result:"
 echo "Target Salesforce org for metadata is:"
 echo $CASE_LOG
-echo "Salesforce org alias is:"
+echo -e "\nSalesforce org alias is:"
 echo $SALESFORCE_TARGET_ORG_ALIAS
-echo "--- Step 2 execution is finished ---"
+echo -e "\n--- Step 2 execution is finished ---"
 
 
 
