@@ -60,7 +60,7 @@ echo -e "\n--- Step 2 execution is finished ---"
 
 
 
-echo -e "\n\n\n--- Step 2.1. Get correct git data ---"
+echo -e "\n\n\n--- Step 2.1. Get correct git data ---\n"
 echo $(git config --global user.email $GIT_CONFIG_USER_EMAIL)
 echo $(git config --global user.name $GIT_CONFIG_USER_NAME)
 echo $(git config --global user.password $GIT_CONFIG_USER_PASSWORD)
@@ -70,7 +70,7 @@ echo $(git config advice.detachedHead false)
 git checkout "origin/"$SOURCE_BRANCH_NAME
 git pull origin $TARGET_BRANCH_NAME --no-commit && git commit -m "Merge" || true
 
-echo "--- Step 2.1 execution is finished ---"
+echo -e "\n--- Step 2.1 execution is finished ---"
 
 
 
@@ -78,7 +78,7 @@ echo "--- Step 2.1 execution is finished ---"
 echo -e "\n\n\n--- Step 3. Logic execution to define the list of files to be deployed to the Salesforce org ---"
 case $TARGET_BRANCH_NAME in
     "dev")
-        echo -e "Find the difference between organizations"
+        echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
@@ -87,7 +87,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "qa")
-        echo -e "Find the difference between organizations"
+        echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
@@ -96,7 +96,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "staging")
-        echo -e "Find the difference between organizations"
+        echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
@@ -105,7 +105,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "uat")
-        echo -e "Find the difference between organizations"
+        echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
@@ -114,7 +114,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "uat_phase1")
-        echo -e "Find the difference between organizations"
+        echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
@@ -123,7 +123,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/phase1 | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "prod")
-        echo -e "Find the difference between organizations"
+        echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
@@ -140,3 +140,8 @@ echo -e "\nStep 3 execution is finished"
 echo "Step 3 execution result:"
 echo "Files to deploy"
 echo $FILES_TO_DEPLOY
+echo -e "\n--- Step 3 execution is finished ---"
+
+pwd
+
+
