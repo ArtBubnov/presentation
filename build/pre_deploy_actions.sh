@@ -81,8 +81,7 @@ case $TARGET_BRANCH_NAME in
         echo -e "Find the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
-        echo "Diff logic execution result:"
-        #GET_DIFF=$(git diff --name-only ${DIFF_BRANCH} force-app/main/default)
+        echo -e "\nDiff logic execution result:"
         GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
@@ -91,8 +90,7 @@ case $TARGET_BRANCH_NAME in
         echo -e "Find the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
-        echo "Diff logic execution result:"
-        #GET_DIFF=$(git diff --name-only ${DIFF_BRANCH} force-app/main/default)
+        echo -e "\nDiff logic execution result:"
         GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
@@ -101,7 +99,7 @@ case $TARGET_BRANCH_NAME in
         echo -e "Find the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
-        echo "Diff logic execution result:"
+        echo -e "\nDiff logic execution result:"
         GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
@@ -110,7 +108,7 @@ case $TARGET_BRANCH_NAME in
         echo -e "Find the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
-        echo "Diff logic execution result:"
+        echo -e "\nDiff logic execution result:"
         GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
@@ -119,7 +117,7 @@ case $TARGET_BRANCH_NAME in
         echo -e "Find the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
-        echo "Diff logic execution result:"
+        echo -e "\nDiff logic execution result:"
         GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/phase1)
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/phase1 | tr '\n' ',' | sed 's/\(.*\),/\1 /')
@@ -128,7 +126,7 @@ case $TARGET_BRANCH_NAME in
         echo -e "Find the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
-        echo "Diff logic execution result:"
+        echo -e "\nDiff logic execution result:"
         GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
