@@ -15,6 +15,11 @@ echo $SOURCE_BRANCH_NAME
 echo "Target branch name is:"
 echo $TARGET_BRANCH_NAME
 echo "--- Step 1 execution is finished ---"
+
+
+echo $GITHUB_BASE_REF
+echo $GITHUB_HEAD_REF
+
          # echo "Pull request source branch is:"
          # echo ${{ github.event.pull_request.head.ref }}
          # echo "Pull request target branch is:"
