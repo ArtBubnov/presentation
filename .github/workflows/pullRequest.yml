@@ -1,0 +1,50 @@
+#this scenario will be executed in case of creation of a Pull Request
+name: pull request logic
+
+#depends on the target branch one of the following scenarios:
+on:
+  pull_request:
+    #PR target branch is: 
+    branches:
+      - 'dev**'
+      - 'qa**'
+      - 'staging**'
+      - 'uat**'
+      - 'prod**'
+    types: [opened, reopened, synchronize]
+
+
+jobs:
+  push_logic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Logger
+        run: |
+          echo "TEST"
+          echo $GITHUB_REF_NAME
+          echo "Pull request source branch is:"
+          echo ${{ github.event.pull_request.head.ref }}
+          echo "Pull request target branch is:"
+          echo ${{ github.event.pull_request.base.ref }}
+          
+
+      - uses: actions/checkout@v3
+
+
+      #- name: SFDX CLI installation
+      #  run: |
+      #    chmod +x ./build/install_dependencies.sh
+      #    ./build/install_dependencies.sh
+
+
+      #- name: Salesforce org login
+      #  run: |
+      #    chmod +x ./build/login_to_SF_org.sh
+      #    ./build/login_to_SF_org.sh
+
+      #Deploy metadata to the target Salesforce org without saving
+      #Apex tests execution
+      - name: Predeploy actions
+        run: |
+          chmod +x ./build/pre_deploy_actions.sh
+          ./build/pre_deploy_actions.sh

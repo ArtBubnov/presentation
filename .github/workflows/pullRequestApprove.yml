@@ -1,0 +1,50 @@
+#this scenario will be executed if a Pull Request has been approved
+name: pull request approved logic
+
+#depends on the target branch one of the following scenarios will be executed:
+on:
+  #pull_request:
+  push:
+    #target branch is: 
+    branches:
+      - 'dev**'
+      - 'qa**'
+      - 'staging**'
+      - 'uat**'
+      - 'prod**'
+    #types: [submitted]
+
+
+jobs:
+  push_logic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Logger
+        run: |
+          echo "TEST"
+          echo $GITHUB_REF_NAME
+         # echo "Pull request source branch is:"
+         # echo ${{ github.event.pull_request.head.ref }}
+         # echo "Pull request target branch is:"
+         # echo ${{ github.event.pull_request.base.ref }}
+          
+      - uses: actions/checkout@v3
+
+
+      - name: SFDX CLI installation
+        run: |
+          chmod +x ./build/install_dependencies.sh
+          ./build/install_dependencies.sh
+
+
+      - name: Salesforce org login
+        run: |
+          chmod +x ./build/login_to_SF_org.sh
+          ./build/login_to_SF_org.sh
+
+
+      #- name: Deploy metadata to Salesforce org
+      #  run: |
+      #    chmod +x ./build/deploy_metadata_to_sf_org.sh
+      #    ./build/deploy_metadata_to_sf_org.sh
+         
