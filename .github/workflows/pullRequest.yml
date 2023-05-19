@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Logger
         run: |
-          echo "TEST"
-          echo $GITHUB_REF_NAME
+          echo "Event is:"
+          echo -e "Pull request\n"
           echo "Pull request source branch is:"
           echo $GITHUB_HEAD_REF
           echo "Pull request target branch is:"
