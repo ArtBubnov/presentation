@@ -15,7 +15,7 @@ on:
 
 
 jobs:
-  push_logic:
+  pre_deploy_logic:
     runs-on: ubuntu-latest
     steps:
       - name: Logger
@@ -23,9 +23,9 @@ jobs:
           echo "TEST"
           echo $GITHUB_REF_NAME
           echo "Pull request source branch is:"
-          echo ${{ github.event.pull_request.head.ref }}
+          echo $GITHUB_HEAD_REF
           echo "Pull request target branch is:"
-          echo ${{ github.event.pull_request.base.ref }}
+          echo $GITHUB_BASE_REF
           
 
       - uses: actions/checkout@v3
