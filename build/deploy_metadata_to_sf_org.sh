@@ -3,12 +3,12 @@ echo -e "--- Deploy metadata to Salesforce org script executions start ---\n\n\n
 
 
 
-echo "--- Step 1. Define global variables for the current pipeline ---"
+echo -e "--- Step 1. Define global variables for the current pipeline ---\n"
 
 SOURCE_BRANCH_NAME=$GITHUB_HEAD_REF
 TARGET_BRANCH_NAME=$GITHUB_BASE_REF
 TARGET_BRANCH_NAME="qa"
-echo "Step 1 execution result:"
+echo "*** Step 1 execution result: ***"
 echo "Global variables display"
 echo -e "\nEvent type is:"
 echo "Push"
@@ -16,11 +16,11 @@ echo -e "\nSource branch name is:"
 echo $SOURCE_BRANCH_NAME
 echo -e "\nTarget branch name is:"
 echo $TARGET_BRANCH_NAME
-echo "---Step 1 execution is finished ---"
+echo -e "\n---Step 1 execution is finished ---"
 
 
 
-echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---"
+echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---\n"
 echo "Depends on the result of case definition the following will be determined:"
 echo "A - Target Salesforce org for metadata"
 echo -e "B - Salesforce org alias\n"
@@ -52,7 +52,7 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo "Step 2 execution result:"
+echo "*** Step 2 execution result: ***"
 echo -e "\nTarget Salesforce org for metadata is:"
 echo $CASE_LOG
 echo -e "\nSalesforce org alias is:"
@@ -114,7 +114,7 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo -e "Step 3 execution result:\n"
+echo -e "\n*** Step 3 execution result ***"
 echo "Files to deploy"
 echo $FILES_TO_DEPLOY
 echo "--- Step 3 execution is finished ---"
@@ -157,7 +157,7 @@ NUMBER_OF_SYMBOLS_TO_TRUNCATE=$( expr $LEN_OF_LIST_OF_FILES_TO_TEST - 1 )
 LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER_OF_SYMBOLS_TO_TRUNCATE )
 
 
-echo -e "Step 4 execution result:\n"
+echo -e "*** Step 4 execution result ***\n"
 echo "LIST_OF_FILES_TO_TEST"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
 echo "--- Step 4 execution is finished ---"
