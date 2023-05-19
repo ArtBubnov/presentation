@@ -216,13 +216,22 @@ echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 
 #TEST="force-app/main/default/email/EN_Evouchers.emailFolder-meta.xml,force-app/main/default/email/EN_Evouchers/Do_I_have_to_spend_my_whole_e_Voucher_at_once3.email,force-app/main/default/email/EN_Evouchers/Do_I_have_to_spend_my_whole_e_Voucher_at_once3.email-meta.xml,force-app/main/default/email/FR_E_Vouchers.emailFolder-meta.xml,force-app/main/default/email/FR_E_Vouchers/Do_I_have_to_spend_my_whole_e_voucher_at_once2.email,force-app/main/default/email/FR_E_Vouchers/Do_I_have_to_spend_my_whole_e_voucher_at_once2.email-meta.xml,force-app/main/default/email/FR_Luggage.emailFolder-meta.xml,force-app/main/default/email/FR_Luggage/Paris_Left_Luggage.email,force-app/main/default/email/FR_Luggage/Paris_Left_Luggage.email-meta.xml"
 #mapfile -t files_array < <(echo $TEST)
-mapfile -t files_array < <( git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default )
+TEST="force-app/main/default/classes/batches/Batch_00.cls force-app/main/default/classes/batches/test1/Batch_01.cls-meta.xml force-app/main/default/classes/batches/test1/test2/Batch_02.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls-meta.xml force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls-meta.xml"
+mapfile -t files_array < <( $TEST )
 ARRAY_LEN=${#files_array[@]}
 echo $ARRAY_LEN
 echo "Array is"
 echo ${files_array[*]}
 echo ${files_array[0]}
 echo ${files_array[1]}
+echo ${files_array[2]}
+echo ${files_array[3]}
+echo ${files_array[4]}
+echo ${files_array[5]}
+echo ${files_array[6]}
+echo ${files_array[7]}
+echo ${files_array[8]}
+echo ${files_array[9]}
 
 
 
