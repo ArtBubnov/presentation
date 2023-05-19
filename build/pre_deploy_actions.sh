@@ -226,18 +226,18 @@ LOOP_LEN=$( expr $ARRAY_LEN - 1)
 while [ $COUNT -le $LOOP_LEN ]
 do
     CURRENT_ARRAY_PIECE=${files_array[$COUNT]}
-    echo "This is " $COUNT
-    echo $CURRENT_ARRAY_PIECE
-    echo "--------------"
+    #echo "This is " $COUNT
+    #echo $CURRENT_ARRAY_PIECE
+    #echo "--------------"
     mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '\n' )
     currentArrayPiece_array_len=${#currentArrayPiece_array[@]}
     LAST_ARRAY_PIECE=$((currentArrayPiece_array_len))
     BEFORE_LAST_ARRAY_PIECE=$((currentArrayPiece_array_len -1))
     
-    echo "the las will be"
-    echo $LAST_ARRAY_PIECE
-    echo "the prelast will be"
-    echo $BEFORE_LAST_ARRAY_PIECE
+    #echo "the las will be"
+    #echo $LAST_ARRAY_PIECE
+    #echo "the prelast will be"
+    #echo $BEFORE_LAST_ARRAY_PIECE
 
     folder=$(echo ${currentArrayPiece_array[$BEFORE_LAST_ARRAY_PIECE]})
     file=$(echo ${currentArrayPiece_array[$LAST_ARRAY_PIECE]})
