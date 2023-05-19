@@ -229,7 +229,7 @@ do
     echo "This is " $COUNT
     echo $CURRENT_ARRAY_PIECE
     echo "--------------"
-    mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '/\n' )
+    mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '\n' )
         COUNT_B=0
         ARRAY_LEN_B=${#currentArrayPiece_array[@]}
         LOOP_LEN_B=$( expr $ARRAY_LEN_B - 1)
