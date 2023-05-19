@@ -231,8 +231,8 @@ do
     echo "--------------"
     mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '\n' )
     currentArrayPiece_array_len=${#currentArrayPiece_array[@]}
-    LAST_ARRAY_PIECE=$currentArrayPiece_array_len
-    BEFORE_LAST_ARRAY_PIECE=$currentArrayPiece_array_len -1
+    LAST_ARRAY_PIECE=$((currentArrayPiece_array_len))
+    BEFORE_LAST_ARRAY_PIECE=$((currentArrayPiece_array_len -1))
     
     echo "the las will be"
     echo $LAST_ARRAY_PIECE
