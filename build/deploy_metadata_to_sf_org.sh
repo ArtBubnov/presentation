@@ -23,7 +23,7 @@ echo "---Step 1 execution is finished ---"
 echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---"
 echo "Depends on the result of case definition the following will be determined:"
 echo "A - Target Salesforce org for metadata"
-echo -e "\nB - Salesforce org alias"
+echo -e "B - Salesforce org alias\n"
 case $TARGET_BRANCH_NAME in
     "dev")
         CASE_LOG="dev"
@@ -62,10 +62,10 @@ echo -e "\n--- Step 2 execution is finished ---"
 
 
 
-echo -e "\n\n\n--- Step 3. Logic execution to define the list of files to be deployed to the Salesforce org ---"
+echo -e "\n\n\n--- Step 3. Logic execution to define the list of files to be deployed to the Salesforce org ---\n"
 case $TARGET_BRANCH_NAME in
     "dev")
-        echo -e "Find the difference between organizations"
+        echo -e "Find the difference between organizations\n"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo "Diff logic execution result:"
@@ -74,7 +74,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "qa")
-        echo -e "Find the difference between organizations"
+        echo -e "Find the difference between organizations\n"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo "Diff logic execution result:"
@@ -83,7 +83,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "staging")
-        echo -e "Find the difference between organizations"
+        echo -e "Find the difference between organizations\n"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo "Diff logic execution result:"
@@ -92,7 +92,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "uat")
-        echo -e "Find the difference between organizations"
+        echo -e "Find the difference between organizations\n"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo "Diff logic execution result:"
@@ -101,7 +101,7 @@ case $TARGET_BRANCH_NAME in
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
     "prod")
-        echo -e "Find the difference between organizations"
+        echo -e "Find the difference between organizations\n"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
 
         echo "Diff logic execution result:"
@@ -114,11 +114,10 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo "Step 3 execution is finished"
-echo "Step 3 execution result:"
+echo -e "Step 3 execution result:\n"
 echo "Files to deploy"
 echo $FILES_TO_DEPLOY
-
+echo "--- Step 3 execution is finished ---"
 
 
 
@@ -157,15 +156,16 @@ LEN_OF_LIST_OF_FILES_TO_TEST=${#LIST_OF_FILES_TO_TEST}
 NUMBER_OF_SYMBOLS_TO_TRUNCATE=$( expr $LEN_OF_LIST_OF_FILES_TO_TEST - 1 )
 LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER_OF_SYMBOLS_TO_TRUNCATE )
 
-echo "Step 4 execution is finished"
-echo "Step 4 execution result:"
+
+echo -e "Step 4 execution result:\n"
 echo "LIST_OF_FILES_TO_TEST"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
+echo "--- Step 4 execution is finished ---"
 
 
 
 
-echo -e "\n\n\nStep 5. Deploy data to the target Salesforce org"
+echo -e "\n\n\n--- Step 5. Deploy data to the target Salesforce org ----"
 cd /home/circleci/project
 
 
@@ -199,3 +199,4 @@ case $TARGET_BRANCH_NAME in
         echo "Not valid"
         ;;
 esac
+echo "--- Step 5 execution is finished ---"
