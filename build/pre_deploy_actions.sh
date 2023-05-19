@@ -216,14 +216,7 @@ echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 
 
 
-files_array=("force-app/main/default/classes/batches/Batch_00.cls" "force-app/main/default/classes/batches/test1/Batch_01.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls-meta.xml")
-
-
-TEST="force-app/main/default/classes/batches/Batch_00.cls"
-echo $TEST
-TEST2=$(echo $TEST| tr '/' '\n')
-echo "TEST2"
-echo $TEST2
+files_array=("force-app/main/default/classes/batches/Batch_00.cls" "force-app/main/default/classes/batches/Batch_00.cls-meta.xml" "force-app/main/default/classes/batches/test1/Batch_01.cls" "force-app/main/default/classes/batches/test1/Batch_01.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls-meta.xml")
 
 
 COUNT=0
@@ -236,7 +229,7 @@ do
     echo "This is " $COUNT
     echo $CURRENT_ARRAY_PIECE
     echo "--------------"
-    mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '\n' )
+    mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '/\n' )
         COUNT_B=0
         ARRAY_LEN_B=${#currentArrayPiece_array[@]}
         LOOP_LEN_B=$( expr $ARRAY_LEN_B - 1)
@@ -245,7 +238,7 @@ do
             echo "This is B " $COUNT_B
             echo "**********"
             echo ${currentArrayPiece_array[$COUNT_B]}
-
+            
             COUNT_B=$(( $COUNT_B +1))
         done
 
@@ -267,7 +260,20 @@ done
 
 
 
+    #if [[ ${classes_files_array[$COUNT]} == *"Test.cls"* ]];
+    #then
 
+    #    if [[ ${classes_files_array[$COUNT]} == *"cls-meta.xml"* ]];
+    #    then
+    #        LIST_OF_XML_FILES=$LIST_OF_XML_FILES{classes_files_array[$COUNT]}","
+    #    else
+    #        LEN_OF_FILE_NAME=${#classes_files_array[$COUNT]}
+    #        NUMBER_OF_SYMBOLS_TO_TRUNCATE=$( expr $LEN_OF_FILE_NAME - 4 )
+    #        FILE_NAME_TRUNC=$((echo ${classes_files_array[$COUNT]}) | cut -c 1-$NUMBER_OF_SYMBOLS_TO_TRUNCATE )
+    #        LIST_OF_FILES_TO_TEST=$LIST_OF_FILES_TO_TEST$FILE_NAME_TRUNC","
+    #    fi
+
+    #fi 
 
 
 
