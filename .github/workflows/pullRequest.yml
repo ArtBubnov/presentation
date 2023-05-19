@@ -35,6 +35,7 @@ jobs:
           echo $(git config --global user.email $GIT_CONFIG_USER_EMAIL)
           echo $(git config --global user.name $GIT_CONFIG_USER_NAME)
           echo $(git config --global user.password $GIT_CONFIG_USER_PASSWORD)
+          echo $(git config pull.rebase false)
 
 
       #- name: SFDX CLI installation
