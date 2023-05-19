@@ -1,9 +1,5 @@
 
 echo -e "--- Predeploy actions script executions start ---\n\n\n"
-TEST=$(git branch)
-echo "test"
-echo $TEST
-
 
 
 echo -e "--- Step 1. Define global variables for the current pipeline ---\n"
@@ -171,6 +167,7 @@ LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER
 
 
 echo -e "\nStep 4 execution result:"
+echo "List of apex tests to be executed:"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
 echo -e "\n--- Step 4 execution is finished ---"
 cd /home/runner/work/presentation/presentation
