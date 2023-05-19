@@ -86,7 +86,7 @@ case $TARGET_BRANCH_NAME in
 
         echo -e "\nDiff logic execution result:"
         #GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
-        GET_DIFF=$(git diff --name-only --diff-filter=ACMR qa force-app/main/default)
+        GET_DIFF=$(git diff --name-only --diff-filter=ACMR origin/qa force-app/main/default)
         echo $GET_DIFF
         #FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR qa force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
