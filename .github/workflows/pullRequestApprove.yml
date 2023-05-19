@@ -21,14 +21,19 @@ jobs:
     steps:
       - name: Logger
         run: |
-          echo "TEST"
-          echo $GITHUB_REF_NAME
-         # echo "Pull request source branch is:"
-         # echo ${{ github.event.pull_request.head.ref }}
-         # echo "Pull request target branch is:"
-         # echo ${{ github.event.pull_request.base.ref }}
+          echo -e "--- Step 1. Output global info for the current pipeline ---\n"
+          echo "Event is:"
+          echo -e "Pull request\n"
+          echo "Pull request source branch is:"
+          echo $GITHUB_HEAD_REF
+          echo -e "\nPull request target branch is:"
+          echo $GITHUB_BASE_REF
+          echo -e "\n--- Step 1 execution is finished ---"
+        
           
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
 
       - name: SFDX CLI installation

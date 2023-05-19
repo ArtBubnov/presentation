@@ -4,20 +4,18 @@ echo -e "--- Deploy metadata to Salesforce org script executions start ---\n\n\n
 
 
 echo "--- Step 1. Define global variables for the current pipeline ---"
-SOURCE_BRANCH_NAME="TO BE DONE"
-TARGET_BRANCH_NAME=$GITHUB_REF_NAME
+
+SOURCE_BRANCH_NAME=$GITHUB_HEAD_REF
+TARGET_BRANCH_NAME=$GITHUB_BASE_REF
+
 echo "Step 1 execution result:"
 echo "Global variables display"
-echo "Event type is:"
+echo -e "\nEvent type is:"
 echo "Push"
-echo "Source branch name is:"
-#TBD
+echo -e "\nSource branch name is:"
 echo $SOURCE_BRANCH_NAME
-echo "Target branch name is:"
+echo -e "\nTarget branch name is:"
 echo $TARGET_BRANCH_NAME
-echo "current branch is:"
-GET_CURRENT_BRANCH_LOG=$(git branch)
-echo $GET_CURRENT_BRANCH_LOG
 echo "---Step 1 execution is finished ---"
 
 
@@ -25,7 +23,7 @@ echo "---Step 1 execution is finished ---"
 echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---"
 echo "Depends on the result of case definition the following will be determined:"
 echo "A - Target Salesforce org for metadata"
-echo "B - Salesforce org alias"
+echo -e "\nB - Salesforce org alias"
 case $TARGET_BRANCH_NAME in
     "dev")
         CASE_LOG="dev"
@@ -55,27 +53,11 @@ case $TARGET_BRANCH_NAME in
 esac
 
 echo "Step 2 execution result:"
-echo "Target Salesforce org for deploy metadata is:"
+echo -e "\nTarget Salesforce org for metadata is:"
 echo $CASE_LOG
-echo "Salesforce org alias is:"
+echo -e "\nSalesforce org alias is:"
 echo $SALESFORCE_TARGET_ORG_ALIAS
-echo "--- Step 2 execution is finished ---"
-
-
-
-
-echo -e "\n\n\n--- Step 2.1. Get correct git data ---"
-echo $(git config --global user.email $GIT_CONFIG_USER_EMAIL)
-echo $(git config --global user.name $GIT_CONFIG_USER_NAME)
-echo $(git config --global user.password $GIT_CONFIG_USER_PASSWORD)
-echo $(git config pull.rebase false)
-echo $(git config advice.detachedHead false)
-
-#TBD UNCOMMENT
-#git checkout "origin/"$SOURCE_BRANCH_NAME
-#git pull origin $TARGET_BRANCH_NAME --no-commit && git commit -m "Merge" || true
-#TBD UNCOMMENT
-echo "--- Step 2.1 execution is finished ---"
+echo -e "\n--- Step 2 execution is finished ---"
 
 
 
