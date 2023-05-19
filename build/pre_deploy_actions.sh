@@ -242,7 +242,12 @@ do
     folder=$(echo ${currentArrayPiece_array[$BEFORE_LAST_ARRAY_PIECE]})
     file=$(echo ${currentArrayPiece_array[$LAST_ARRAY_PIECE]})
     echo "!@!!!!!!!!!!!"
-    echo -e "$folder: $file"
+    echo "FOLDER"
+    echo $folder
+    echo "FILE"
+    echo $file
+
+    #echo -e "$folder: $file"
     echo -e "\n"
     COUNT=$(( $COUNT +1))
 done
