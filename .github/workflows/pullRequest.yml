@@ -35,16 +35,16 @@ jobs:
           fetch-depth: 0
 
 
-      - name: SFDX CLI installation
-        run: |
-          chmod +x ./build/install_dependencies.sh
-          ./build/install_dependencies.sh
+      #- name: SFDX CLI installation
+      #  run: |
+      #    chmod +x ./build/install_dependencies.sh
+      #    ./build/install_dependencies.sh
 
 
-      - name: Salesforce org login
-        run: |
-          chmod +x ./build/login_to_SF_org.sh
-          ./build/login_to_SF_org.sh
+      #- name: Salesforce org login
+      #  run: |
+      #    chmod +x ./build/login_to_SF_org.sh
+      #    ./build/login_to_SF_org.sh
 
       #Deploy metadata to the target Salesforce org without saving
       #Apex tests execution

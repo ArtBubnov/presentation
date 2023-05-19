@@ -220,7 +220,7 @@ mapfile -t files_array < <( git diff --name-only --diff-filter=ACMR ${DIFF_BRANC
 ARRAY_LEN=${#files_array[@]}
 echo $ARRAY_LEN
 echo "Array is"
-ehco ${files_array[*]}
+echo ${files_array[*]}
 
 
 echo "***********************************************************************************************"
