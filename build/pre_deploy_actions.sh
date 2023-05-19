@@ -232,8 +232,9 @@ LOOP_LEN=$( expr $ARRAY_LEN - 1)
 
 while [ $COUNT -le $LOOP_LEN ]
 do
+    CURRENT_ARRAY_PICE=${files_array[$COUNT]}
     echo "This is " $COUNT
-    echo ${files_array[$COUNT]}
+    echo $CURRENT_ARRAY_PICE
     echo "--------------"
     #folder=$(echo ${files_array[$COUNT]} | cut -d\/ -f4)
     #file=$(echo ${files_array[$COUNT]} | cut -d\/ -f5)
