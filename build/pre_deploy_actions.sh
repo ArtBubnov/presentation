@@ -50,7 +50,7 @@ case $TARGET_BRANCH_NAME in
 esac
 
 echo "Step 2 execution result:"
-echo "Target Salesforce org for metadata is:"
+echo -e "\nTarget Salesforce org for metadata is:"
 echo $CASE_LOG
 echo -e "\nSalesforce org alias is:"
 echo $SALESFORCE_TARGET_ORG_ALIAS
@@ -122,7 +122,7 @@ esac
 
 echo -e "\nStep 3 execution is finished"
 echo "Step 3 execution result:"
-echo "Files to deploy"
+echo -e "\nFiles to deploy"
 echo $FILES_TO_DEPLOY
 echo -e "\n--- Step 3 execution is finished ---"
 
@@ -167,7 +167,7 @@ LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER
 
 
 echo -e "\nStep 4 execution result:"
-echo "List of apex tests to be executed:"
+echo -e "\nList of apex tests to be executed:"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
 echo -e "\n--- Step 4 execution is finished ---"
 cd /home/runner/work/presentation/presentation

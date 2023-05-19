@@ -45,12 +45,12 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo "Step 2 execution result:"
+echo -e "Step 2 execution result:\n"
 echo "Case result:"
 echo $CASE_LOG
-echo "Salesforce org to be used:"
+echo -e "\nSalesforce org to be used:"
 echo $CASE_LOG
-echo "Salesforce alias to be used: "
+echo -e "\nSalesforce alias to be used: "
 echo $SALESFORCE_ORG_ALIAS
 echo -e "\n--- Step 2 execution is finished ----"
 

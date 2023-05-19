@@ -1,7 +1,7 @@
 echo -e "--- SFDX CLI installation script executions start ---\n\n\n"
 
 
-echo -e "--- Step 1. Installing Salesforce CLI execution ---\n"
+echo -e "--- Step 1. Installing Salesforce CLI execution ---"
 sudo npm install -global sfdx-cli
 echo -e "\n--- Step 1 execution is finished ---\n\n\n"
 
