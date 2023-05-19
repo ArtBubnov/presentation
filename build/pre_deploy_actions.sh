@@ -214,9 +214,13 @@ echo -e "\n--- Step 5 execution is finished ---"
 
 echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 
-TEST="force-app/main/default/email/EN_Evouchers.emailFolder-meta.xml,force-app/main/default/email/EN_Evouchers/Do_I_have_to_spend_my_whole_e_Voucher_at_once3.email,force-app/main/default/email/EN_Evouchers/Do_I_have_to_spend_my_whole_e_Voucher_at_once3.email-meta.xml,force-app/main/default/email/FR_E_Vouchers.emailFolder-meta.xml,force-app/main/default/email/FR_E_Vouchers/Do_I_have_to_spend_my_whole_e_voucher_at_once2.email,force-app/main/default/email/FR_E_Vouchers/Do_I_have_to_spend_my_whole_e_voucher_at_once2.email-meta.xml,force-app/main/default/email/FR_Luggage.emailFolder-meta.xml,force-app/main/default/email/FR_Luggage/Paris_Left_Luggage.email,force-app/main/default/email/FR_Luggage/Paris_Left_Luggage.email-meta.xml"
-mapfile -t files_array < <(echo $TEST)
-
+#TEST="force-app/main/default/email/EN_Evouchers.emailFolder-meta.xml,force-app/main/default/email/EN_Evouchers/Do_I_have_to_spend_my_whole_e_Voucher_at_once3.email,force-app/main/default/email/EN_Evouchers/Do_I_have_to_spend_my_whole_e_Voucher_at_once3.email-meta.xml,force-app/main/default/email/FR_E_Vouchers.emailFolder-meta.xml,force-app/main/default/email/FR_E_Vouchers/Do_I_have_to_spend_my_whole_e_voucher_at_once2.email,force-app/main/default/email/FR_E_Vouchers/Do_I_have_to_spend_my_whole_e_voucher_at_once2.email-meta.xml,force-app/main/default/email/FR_Luggage.emailFolder-meta.xml,force-app/main/default/email/FR_Luggage/Paris_Left_Luggage.email,force-app/main/default/email/FR_Luggage/Paris_Left_Luggage.email-meta.xml"
+#mapfile -t files_array < <(echo $TEST)
+mapfile -t files_array < <( git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /' )
+ARRAY_LEN=${#files_array[@]}
+echo $ARRAY_LEN
+echo "Array is"
+ehco ${files_array[*]}
 
 
 echo "***********************************************************************************************"
