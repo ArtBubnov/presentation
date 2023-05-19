@@ -7,7 +7,7 @@ echo "--- Step 1. Define global variables for the current pipeline ---"
 
 SOURCE_BRANCH_NAME=$GITHUB_HEAD_REF
 TARGET_BRANCH_NAME=$GITHUB_BASE_REF
-
+TARGET_BRANCH_NAME="qa"
 echo "Step 1 execution result:"
 echo "Global variables display"
 echo -e "\nEvent type is:"
