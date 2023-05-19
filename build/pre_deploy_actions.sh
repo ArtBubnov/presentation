@@ -219,51 +219,11 @@ echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 files_array=("force-app/main/default/classes/batches/Batch_00.cls" "force-app/main/default/classes/batches/test1/Batch_01.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls-meta.xml")
 
 
-#mapfile -t files_array < <( git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default )
-
-ARRAY_LEN=${#files_array[@]}
-echo $ARRAY_LEN
-echo "Array is"
-echo ${files_array[*]}
-echo "--------------"
-echo ${files_array[0]}
-echo "--------------"
-echo ${files_array[1]}
-echo "--------------"
-echo ${files_array[2]}
-echo "--------------"
-echo ${files_array[3]}
-echo "--------------"
-echo ${files_array[4]}
-echo "--------------"
-echo ${files_array[5]}
-echo "--------------"
-echo ${files_array[6]}
-echo "--------------"
-echo ${files_array[7]}
-echo "--------------"
-echo ${files_array[8]}
-echo "--------------"
-echo ${files_array[9]}
-
 TEST="force-app/main/default/classes/batches/Batch_00.cls"
 echo $TEST
 TEST2=$(echo $TEST| tr '/' '\n')
 echo "TEST2"
 echo $TEST2
-
-
-
-echo "***********************************************************************************************"
-echo "***********************************************************************************************"
-echo "***********************************************************************************************"
-echo "---------------------------  === LIST OF FILES ===  -------------------------------------------"
-echo "---------------------------  === START OF THE LIST ===  ---------------------------------------"
-echo "                                                                                              |"
-echo "                                                                                              |"
-echo "                                                                                              |"
-echo -e "                                                                                              |\n\n\n"
-
 
 
 COUNT=0
@@ -272,23 +232,23 @@ LOOP_LEN=$( expr $ARRAY_LEN - 1)
 
 while [ $COUNT -le $LOOP_LEN ]
 do
-    folder=$(echo ${files_array[$COUNT]} | cut -d\/ -f4)
-    file=$(echo ${files_array[$COUNT]} | cut -d\/ -f5)
-    echo -e "$folder: $file"
-    echo -e "\n"
+    echo "This is " $COUNT
+    echo ${files_array[$COUNT]}
+    echo "--------------"
+    #folder=$(echo ${files_array[$COUNT]} | cut -d\/ -f4)
+    #file=$(echo ${files_array[$COUNT]} | cut -d\/ -f5)
+    #echo -e "$folder: $file"
+    #echo -e "\n"
     COUNT=$(( $COUNT +1))
 done
 
 
 
-echo -e "\n\n\n                                                                                              |"
-echo "                                                                                              |"
-echo "                                                                                              |"
-echo "                                                                                              |"
-echo "---------------------------  === END OF THE LIST ===  -----------------------------------------"
-echo "***********************************************************************************************"
-echo "***********************************************************************************************"
-echo "***********************************************************************************************"
+
+
+
+
+
 
 
 
