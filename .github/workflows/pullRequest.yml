@@ -24,7 +24,7 @@ jobs:
           echo -e "Pull request\n"
           echo "Pull request source branch is:"
           echo $GITHUB_HEAD_REF
-          echo "Pull request target branch is:"
+          echo -e "\nPull request target branch is:"
           echo $GITHUB_BASE_REF
           
 
