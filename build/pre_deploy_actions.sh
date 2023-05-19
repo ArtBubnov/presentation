@@ -232,10 +232,29 @@ LOOP_LEN=$( expr $ARRAY_LEN - 1)
 
 while [ $COUNT -le $LOOP_LEN ]
 do
-    CURRENT_ARRAY_PICE=${files_array[$COUNT]}
+    CURRENT_ARRAY_PIECE=${files_array[$COUNT]}
     echo "This is " $COUNT
-    echo $CURRENT_ARRAY_PICE
+    echo $CURRENT_ARRAY_PIECE
     echo "--------------"
+    mapfile -t currentArrayPiece_array < <( $CURRENT_ARRAY_PIECE| tr '/' '\n' )
+        COUNT_B=0
+        ARRAY_LEN_B=${#currentArrayPiece_array[@]}
+        LOOP_LEN_B=$( expr $ARRAY_LEN_B - 1)
+        while [ $COUNT_B -le $LOOP_LEN_B ]
+        do
+            echo "This is B " $COUNT_B
+            echo "**********"
+            echo ${currentArrayPiece_array[$COUNT_B]}
+
+            COUNT_B=$(( $COUNT_B +1))
+        done
+
+
+
+
+
+
+
     #folder=$(echo ${files_array[$COUNT]} | cut -d\/ -f4)
     #file=$(echo ${files_array[$COUNT]} | cut -d\/ -f5)
     #echo -e "$folder: $file"
