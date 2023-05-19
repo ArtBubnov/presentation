@@ -48,8 +48,8 @@ jobs:
           ./build/login_to_SF_org.sh
 
 
-      #- name: Deploy metadata to Salesforce org
-      #  run: |
-      #    chmod +x ./build/deploy_metadata_to_sf_org.sh
-      #    ./build/deploy_metadata_to_sf_org.sh
+      - name: Deploy metadata to Salesforce org
+        run: |
+          chmod +x ./build/deploy_metadata_to_sf_org.sh
+          ./build/deploy_metadata_to_sf_org.sh
          
