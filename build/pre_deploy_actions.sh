@@ -215,7 +215,7 @@ echo -e "\n--- Step 5 execution is finished ---"
 echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 
 
-#myArray=("cat" "dog" "mouse" "frog")
+
 files_array=("force-app/main/default/classes/batches/Batch_00.cls" "force-app/main/default/classes/batches/test1/Batch_01.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls-meta.xml")
 
 
@@ -245,6 +245,12 @@ echo "--------------"
 echo ${files_array[8]}
 echo "--------------"
 echo ${files_array[9]}
+
+TEST="force-app/main/default/classes/batches/Batch_00.cls"
+echo $TEST
+TEST2=$(echo $TEST)
+echo "TEST2"
+echo $TEST2
 
 
 
@@ -283,3 +289,9 @@ echo "---------------------------  === END OF THE LIST ===  --------------------
 echo "***********************************************************************************************"
 echo "***********************************************************************************************"
 echo "***********************************************************************************************"
+
+
+
+
+
+#mapfile -t files_array < <( git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default )
