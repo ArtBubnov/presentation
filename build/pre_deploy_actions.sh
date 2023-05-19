@@ -248,7 +248,7 @@ echo ${files_array[9]}
 
 TEST="force-app/main/default/classes/batches/Batch_00.cls"
 echo $TEST
-TEST2=$(echo $TEST)
+TEST2=$(echo $TEST| tr '/' '\n')
 echo "TEST2"
 echo $TEST2
 
