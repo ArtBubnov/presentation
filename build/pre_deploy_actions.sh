@@ -214,7 +214,10 @@ echo -e "\n--- Step 5 execution is finished ---"
 
 echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 
-mapfile -t files_array < <( git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /' )
+mapfile -t files_array < <(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
+
+
+
 echo "***********************************************************************************************"
 echo "***********************************************************************************************"
 echo "***********************************************************************************************"
