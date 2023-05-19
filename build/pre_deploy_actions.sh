@@ -230,17 +230,28 @@ do
     echo $CURRENT_ARRAY_PIECE
     echo "--------------"
     mapfile -t currentArrayPiece_array < <( echo $CURRENT_ARRAY_PIECE| tr '/' '\n' )
-        COUNT_B=0
-        ARRAY_LEN_B=${#currentArrayPiece_array[@]}
-        LOOP_LEN_B=$( expr $ARRAY_LEN_B - 1)
-        while [ $COUNT_B -le $LOOP_LEN_B ]
-        do
-            echo "This is B " $COUNT_B
-            echo "**********"
-            echo ${currentArrayPiece_array[$COUNT_B]}
-            
-            COUNT_B=$(( $COUNT_B +1))
-        done
+    currentArrayPiece_array_len=${#currentArrayPiece_array[@]}
+    LAST_ARRAY_PIECE=$currentArrayPiece_array_len
+    BEFORE_LAST_ARRAY_PIECE=$currentArrayPiece_array_len -1
+    
+    echo "the las will be"
+    echo $LAST_ARRAY_PIECE
+    echo "the prelast will be"
+    echo $BEFORE_LAST_ARRAY_PIECE
+        #COUNT_B=0
+        #ARRAY_LEN_B=${#currentArrayPiece_array[@]}
+        #LOOP_LEN_B=$( expr $ARRAY_LEN_B - 1)
+        #while [ $COUNT_B -le $LOOP_LEN_B ]
+        #do
+        #    echo "This is B " $COUNT_B
+        #    echo "**********"
+        #    echo ${currentArrayPiece_array[$COUNT_B]}
+        #    echo "the las will be"
+        #    echo 
+        #    echo "the prelast will be"
+        #    
+        #    COUNT_B=$(( $COUNT_B +1))
+        #done
 
 
 
