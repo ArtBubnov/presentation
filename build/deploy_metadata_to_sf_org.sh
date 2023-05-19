@@ -117,11 +117,11 @@ esac
 echo -e "\nStep 3 execution result"
 echo "Files to deploy"
 echo $FILES_TO_DEPLOY
-echo "--- Step 3 execution is finished ---"
+echo -e "\n--- Step 3 execution is finished ---"
 
 
 
-echo -e "\n\n\nStep 4. Logic execution to define the list of apex tests to be executed during deployment to the Salesforce org"
+echo -e "\n\n\nStep 4. Logic execution to define the list of apex tests to be executed during deployment to the Salesforce org\n"
 cd force-app/main/default/classes/tests
 
 #add all the files in the folder into array
@@ -160,13 +160,13 @@ LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER
 echo -e "Step 4 execution result\n"
 echo "LIST_OF_FILES_TO_TEST"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
-echo "--- Step 4 execution is finished ---"
+echo -e "\n--- Step 4 execution is finished ---"
 
 
 
 
 echo -e "\n\n\n--- Step 5. Deploy data to the target Salesforce org ----"
-cd /home/circleci/project
+cd /home/runner/work/presentation/presentation
 
 
 case $TARGET_BRANCH_NAME in
