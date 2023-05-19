@@ -1,7 +1,7 @@
 echo -e "--- Salesforce org login script executions start ---\n\n\n"
 
 echo -e "--- Step 1. Define global variables for the current pipeline ---\n"
-TARGET_BRANCH_NAME=$GITHUB_REF_NAME
+TARGET_BRANCH_NAME=$GITHUB_BASE_REF
 echo "Step 1 execution result:"
 echo "Target branch is:"
 echo $TARGET_BRANCH_NAME
