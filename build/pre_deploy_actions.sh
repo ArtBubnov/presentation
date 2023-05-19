@@ -222,15 +222,25 @@ ARRAY_LEN=${#files_array[@]}
 echo $ARRAY_LEN
 echo "Array is"
 echo ${files_array[*]}
+echo "--------------"
 echo ${files_array[0]}
+echo "--------------"
 echo ${files_array[1]}
+echo "--------------"
 echo ${files_array[2]}
+echo "--------------"
 echo ${files_array[3]}
+echo "--------------"
 echo ${files_array[4]}
+echo "--------------"
 echo ${files_array[5]}
+echo "--------------"
 echo ${files_array[6]}
+echo "--------------"
 echo ${files_array[7]}
+echo "--------------"
 echo ${files_array[8]}
+echo "--------------"
 echo ${files_array[9]}
 
 
