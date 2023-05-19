@@ -82,7 +82,7 @@ echo -e "\n\n\n--- Step 3. Logic execution to define the list of files to be dep
 case $TARGET_BRANCH_NAME in
     "dev")
         echo -e "\nFind the difference between organizations"
-        DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
+        DIFF_BRANCH="origin/"$SOURCE_BRANCH_NAME
 
         echo -e "\nDiff logic execution result:"
         #GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default)
