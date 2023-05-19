@@ -16,6 +16,11 @@ echo "B - Salesforce org alias"
 
 case $TARGET_BRANCH_NAME in
     "dev")
+        CASE_LOG="dev"
+        #ACCESS_KEY_SF=$ACCESS_KEY_SF_DELTAQA_SANDBOX
+        SALESFORCE_ORG_ALIAS="salesforce_dev_sandbox.org"
+        ;;
+    "qa")
         CASE_LOG="qa"
         #ACCESS_KEY_SF=$ACCESS_KEY_SF_DELTAQA_SANDBOX
         SALESFORCE_ORG_ALIAS="salesforce_qa_sandbox.org"
