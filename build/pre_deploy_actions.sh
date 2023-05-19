@@ -238,31 +238,11 @@ do
     echo $LAST_ARRAY_PIECE
     echo "the prelast will be"
     echo $BEFORE_LAST_ARRAY_PIECE
-        #COUNT_B=0
-        #ARRAY_LEN_B=${#currentArrayPiece_array[@]}
-        #LOOP_LEN_B=$( expr $ARRAY_LEN_B - 1)
-        #while [ $COUNT_B -le $LOOP_LEN_B ]
-        #do
-        #    echo "This is B " $COUNT_B
-        #    echo "**********"
-        #    echo ${currentArrayPiece_array[$COUNT_B]}
-        #    echo "the las will be"
-        #    echo 
-        #    echo "the prelast will be"
-        #    
-        #    COUNT_B=$(( $COUNT_B +1))
-        #done
 
-
-
-
-
-
-
-    #folder=$(echo ${files_array[$COUNT]} | cut -d\/ -f4)
-    #file=$(echo ${files_array[$COUNT]} | cut -d\/ -f5)
-    #echo -e "$folder: $file"
-    #echo -e "\n"
+    folder=$(echo ${currentArrayPiece_array[$BEFORE_LAST_ARRAY_PIECE]})
+    file=$(echo ${currentArrayPiece_array[$LAST_ARRAY_PIECE]})
+    echo -e "$folder: $file"
+    echo -e "\n"
     COUNT=$(( $COUNT +1))
 done
 
