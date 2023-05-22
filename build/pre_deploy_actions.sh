@@ -219,6 +219,17 @@ echo -e "\n\n\nStep 6. Specify the lisf of metadata"
 files_array=("force-app/main/default/classes/batches/Batch_00.cls" "force-app/main/default/classes/batches/Batch_00.cls-meta.xml" "force-app/main/default/classes/batches/test1/Batch_01.cls" "force-app/main/default/classes/batches/test1/Batch_01.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls" "force-app/main/default/classes/batches/test1/test2/Batch_02.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls" "force-app/main/default/classes/batches/test1/test2/test3/Batch_03.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/Batch_04.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/Batch_05.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/Batch_06.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/Batch_07.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/Batch_08.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/Batch_09.cls-meta.xml" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls" "force-app/main/default/classes/batches/test1/test2/test3/test4/test5/test6/test7/test8/test9/test10/Batch_10.cls-meta.xml")
 
 
+
+echo "***********************************************************************************************"
+echo "***********************************************************************************************"
+echo "***********************************************************************************************"
+echo "---------------------------  === LIST OF FILES ===  -------------------------------------------"
+echo "---------------------------  === START OF THE LIST ===  ---------------------------------------"
+echo "                                                                                              |"
+echo "                                                                                              |"
+echo "                                                                                              |"
+echo -e "                                                                                              |\n\n\n"
+
 COUNT=0
 ARRAY_LEN=${#files_array[@]}
 LOOP_LEN=$( expr $ARRAY_LEN - 1)
@@ -241,18 +252,25 @@ do
 
     folder=$(echo ${currentArrayPiece_array[$BEFORE_LAST_ARRAY_PIECE]})
     file=$(echo ${currentArrayPiece_array[$LAST_ARRAY_PIECE]})
-    echo "!@!!!!!!!!!!!"
-    echo "FOLDER"
-    echo $folder
-    echo "FILE"
-    echo $file
+    #echo "!@!!!!!!!!!!!"
+    #echo "FOLDER"
+    #echo $folder
+    #echo "FILE"
+    #echo $file
 
-    #echo -e "$folder: $file"
+    echo -e "$folder: $file"
     echo -e "\n"
     COUNT=$(( $COUNT +1))
 done
 
-
+echo -e "\n\n\n                                                                                              |"
+echo "                                                                                              |"
+echo "                                                                                              |"
+echo "                                                                                              |"
+echo "---------------------------  === END OF THE LIST ===  -----------------------------------------"
+echo "***********************************************************************************************"
+echo "***********************************************************************************************"
+echo "***********************************************************************************************"
 
 
 
