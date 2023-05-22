@@ -237,7 +237,7 @@ do
     #echo "the las will be"
     #echo $LAST_ARRAY_PIECE
     #echo "the prelast will be"
-    #echo $BEFORE_LAST_ARRAY_PIECE
+    #echo $BEFORE_LAST_ARRAY_PIECE 
 
     folder=$(echo ${currentArrayPiece_array[$BEFORE_LAST_ARRAY_PIECE]})
     file=$(echo ${currentArrayPiece_array[$LAST_ARRAY_PIECE]})
