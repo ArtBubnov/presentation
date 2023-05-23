@@ -210,6 +210,3 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 echo -e "\n--- Step 5 execution is finished ---"
-
-
-echo -e "\n\n\nStep 6. Specify the lisf of metadata"
