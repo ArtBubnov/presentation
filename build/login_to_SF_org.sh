@@ -1,7 +1,7 @@
 echo -e "--- Salesforce org login script executions start ---\n\n\n"
 
 echo -e "--- Step 1. Define global variables for the current pipeline ---\n"
-TARGET_BRANCH_NAME=$GITHUB_REF_NAME
+TARGET_BRANCH_NAME=$GITHUB_BASE_REF
 echo "Step 1 execution result:"
 echo "Target branch is:"
 echo $TARGET_BRANCH_NAME
@@ -16,6 +16,11 @@ echo "B - Salesforce org alias"
 
 case $TARGET_BRANCH_NAME in
     "dev")
+        CASE_LOG="dev"
+        #ACCESS_KEY_SF=$ACCESS_KEY_SF_DELTAQA_SANDBOX
+        SALESFORCE_ORG_ALIAS="salesforce_dev_sandbox.org"
+        ;;
+    "qa")
         CASE_LOG="qa"
         #ACCESS_KEY_SF=$ACCESS_KEY_SF_DELTAQA_SANDBOX
         SALESFORCE_ORG_ALIAS="salesforce_qa_sandbox.org"
@@ -40,12 +45,12 @@ case $TARGET_BRANCH_NAME in
         ;;
 esac
 
-echo "Step 2 execution result:"
+echo -e "Step 2 execution result:\n"
 echo "Case result:"
 echo $CASE_LOG
-echo "Salesforce org to be used:"
+echo -e "\nSalesforce org to be used:"
 echo $CASE_LOG
-echo "Salesforce alias to be used: "
+echo -e "\nSalesforce alias to be used: "
 echo $SALESFORCE_ORG_ALIAS
 echo -e "\n--- Step 2 execution is finished ----"
 

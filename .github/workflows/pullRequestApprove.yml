@@ -3,16 +3,8 @@ name: pull request approved logic
 
 #depends on the target branch one of the following scenarios will be executed:
 on:
-  #pull_request:
-  push:
-    #target branch is: 
-    branches:
-      - 'dev**'
-      - 'qa**'
-      - 'staging**'
-      - 'uat**'
-      - 'prod**'
-    #types: [submitted]
+  pull_request_review:
+    types: [submitted]
 
 
 jobs:
@@ -21,14 +13,19 @@ jobs:
     steps:
       - name: Logger
         run: |
-          echo "TEST"
-          echo $GITHUB_REF_NAME
-         # echo "Pull request source branch is:"
-         # echo ${{ github.event.pull_request.head.ref }}
-         # echo "Pull request target branch is:"
-         # echo ${{ github.event.pull_request.base.ref }}
+          echo -e "--- Step 1. Output global info for the current pipeline ---\n"
+          echo "Event is:"
+          echo -e "Pull request\n"
+          echo "Pull request source branch is:"
+          echo $GITHUB_HEAD_REF
+          echo -e "\nPull request target branch is:"
+          echo $GITHUB_BASE_REF
+          echo -e "\n--- Step 1 execution is finished ---"
+        
           
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
 
       - name: SFDX CLI installation
@@ -43,8 +40,8 @@ jobs:
           ./build/login_to_SF_org.sh
 
 
-      #- name: Deploy metadata to Salesforce org
-      #  run: |
-      #    chmod +x ./build/deploy_metadata_to_sf_org.sh
-      #    ./build/deploy_metadata_to_sf_org.sh
+      - name: Deploy metadata to Salesforce org
+        run: |
+          chmod +x ./build/deploy_metadata_to_sf_org.sh
+          ./build/deploy_metadata_to_sf_org.sh
          

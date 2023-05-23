@@ -2,8 +2,6 @@
 echo -e "--- Predeploy actions script executions start ---\n\n\n"
 
 
-
-
 echo -e "--- Step 1. Define global variables for the current pipeline ---\n"
 
 SOURCE_BRANCH_NAME=$GITHUB_HEAD_REF
@@ -52,25 +50,11 @@ case $TARGET_BRANCH_NAME in
 esac
 
 echo "Step 2 execution result:"
-echo "Target Salesforce org for metadata is:"
+echo -e "\nTarget Salesforce org for metadata is:"
 echo $CASE_LOG
 echo -e "\nSalesforce org alias is:"
 echo $SALESFORCE_TARGET_ORG_ALIAS
 echo -e "\n--- Step 2 execution is finished ---"
-
-
-
-echo -e "\n\n\n--- Step 2.1. Get correct git data ---\n"
-echo $(git config --global user.email $GIT_CONFIG_USER_EMAIL)
-echo $(git config --global user.name $GIT_CONFIG_USER_NAME)
-echo $(git config --global user.password $GIT_CONFIG_USER_PASSWORD)
-echo $(git config pull.rebase false)
-echo $(git config advice.detachedHead false)
-
-git checkout "origin/"$SOURCE_BRANCH_NAME
-git pull origin $TARGET_BRANCH_NAME --no-commit && git commit -m "Merge" || true
-
-echo -e "\n--- Step 2.1 execution is finished ---"
 
 
 
@@ -113,15 +97,6 @@ case $TARGET_BRANCH_NAME in
         echo $GET_DIFF
         FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/default | tr '\n' ',' | sed 's/\(.*\),/\1 /')
         ;;
-    "uat_phase1")
-        echo -e "\nFind the difference between organizations"
-        DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
-
-        echo -e "\nDiff logic execution result:"
-        GET_DIFF=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/phase1)
-        echo $GET_DIFF
-        FILES_TO_DEPLOY=$(git diff --name-only --diff-filter=ACMR ${DIFF_BRANCH} force-app/main/phase1 | tr '\n' ',' | sed 's/\(.*\),/\1 /')
-        ;;
     "prod")
         echo -e "\nFind the difference between organizations"
         DIFF_BRANCH="origin/"$TARGET_BRANCH_NAME
@@ -138,7 +113,7 @@ esac
 
 echo -e "\nStep 3 execution is finished"
 echo "Step 3 execution result:"
-echo "Files to deploy"
+echo -e "\nFiles to deploy"
 echo $FILES_TO_DEPLOY
 echo -e "\n--- Step 3 execution is finished ---"
 
@@ -183,6 +158,7 @@ LIST_OF_FILES_TO_TEST_TRUNC=$((echo ${LIST_OF_FILES_TO_TEST}) | cut -c 1-$NUMBER
 
 
 echo -e "\nStep 4 execution result:"
+echo -e "\nList of apex tests to be executed:"
 echo $LIST_OF_FILES_TO_TEST_TRUNC
 echo -e "\n--- Step 4 execution is finished ---"
 cd /home/runner/work/presentation/presentation
