@@ -19,6 +19,7 @@ echo -e "\n---Step 1 execution is finished ---"
 
 
 
+
 echo -e "\n\n\n--- Step 2. Define case for the current pipeline ---\n"
 echo "Depends on the result of case definition the following will be determined:"
 echo "A - Target Salesforce org for metadata"
@@ -117,6 +118,7 @@ echo -e "\nStep 3 execution result"
 echo "Files to deploy"
 echo $FILES_TO_DEPLOY
 echo -e "\n--- Step 3 execution is finished ---"
+
 
 
 
